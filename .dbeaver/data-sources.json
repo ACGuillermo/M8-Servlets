@@ -1,0 +1,28 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-1708383804b-2291ee2d6387d9b3": {
+			"provider": "generic",
+			"driver": "sqlite_jdbc",
+			"name": "SQLite - test.db",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"database": "E:\\Workspace\\JSP\\WebContent\\WEB-INF\\lib\\test.db",
+				"url": "jdbc:sqlite:E:\\Workspace\\JSP\\WebContent\\WEB-INF\\lib\\test.db",
+				"type": "dev",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false
+		}
+	}
+}
