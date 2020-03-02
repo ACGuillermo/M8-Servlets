@@ -78,9 +78,11 @@ public class registrarServlet extends HttpServlet {
 		        PreparedStatement selectUser = (PreparedStatement) con.prepareStatement("select * from users where nick = ?");
 		        
 		        selectUser.setString(1, nombre);
-		        
-		        Boolean usuarioExiste = selectUser.execute();
+		        selectUser.execute();
+		        ResultSet rs2 = selectUser.getResultSet();
+		        Boolean usuarioExiste = rs2.next();
 		        if(usuarioExiste) {
+		        	con.close();
 		        	System.out.println("Usuario ya existe!");
 		        	String destination = "/jsp/error.jsp";
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
@@ -106,7 +108,8 @@ public class registrarServlet extends HttpServlet {
 		            
 		            
 		            
-
+		            con.close();
+		            
 					String destination = "/jsp/correcto.jsp";
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
 					request.setAttribute("name", nombre);
@@ -114,7 +117,7 @@ public class registrarServlet extends HttpServlet {
 					request.setAttribute("password", password);
 					requestDispatcher.forward(request, response);
 					
-					con.close();
+					
 			        
 
 		        }
