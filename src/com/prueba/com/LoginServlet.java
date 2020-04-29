@@ -58,12 +58,6 @@ public class LoginServlet extends HttpServlet {
 		PreparedStatement selectUser = null;
 		
 		try {
-			new org.sqlite.JDBC();
-	        Class.forName("org.sqlite.JDBC");
-	        String url = "jdbc:sqlite:C:\\Users\\Guillermo\\Desktop\\WorkStation\\M8-Servlets\\WebContent\\WEB-INF\\lib\\test.db";
-	        con = DriverManager.getConnection(url);
-	        LOGGER.log(Level.FINE, "Connected to db");
-	        
 	      //COMPROBAR USER EN BBDD
 	        selectUser = con.prepareStatement("select * from users where nick = ? and pass = ?");
 	        
