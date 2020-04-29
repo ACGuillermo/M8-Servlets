@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
 		try {
 			new org.sqlite.JDBC();
 	        Class.forName("org.sqlite.JDBC");
-	        String url = "jdbc:sqlite:E:\\Workspace\\JSP\\WebContent\\WEB-INF\\lib\\test.db";
+	        String url = "jdbc:sqlite:C:\\Users\\Guillermo\\Desktop\\WorkStation\\M8-Servlets\\WebContent\\WEB-INF\\lib\\test.db";
 	        Connection con = DriverManager.getConnection(url);
 	        System.out.println("Opened database successfully");
 	        
