@@ -10,21 +10,7 @@
 			"configuration": {
 				"database": "E:\\Workspace\\JSP\\WebContent\\WEB-INF\\lib\\test.db",
 				"url": "jdbc:sqlite:E:\\Workspace\\JSP\\WebContent\\WEB-INF\\lib\\test.db",
-				"type": "dev"
-			}
-		},
-		"sqlite_jdbc-171c4e9cd60-6344e1c1fc05ca4e": {
-			"provider": "generic",
-			"driver": "sqlite_jdbc",
-			"name": "SQLite - test.db 2",
-			"save-password": true,
-			"show-system-objects": true,
-			"read-only": false,
-			"configuration": {
-				"database": "C:\\Users\\Guillermo\\Desktop\\Workspace\\M8-Servlets-master\\M8-Servlets-master\\WebContent\\WEB-INF\\lib\\test.db",
-				"url": "jdbc:sqlite:C:\\Users\\Guillermo\\Desktop\\Workspace\\M8-Servlets-master\\M8-Servlets-master\\WebContent\\WEB-INF\\lib\\test.db",
 				"type": "dev",
-				"auth-model": "native",
 				"handlers": {}
 			}
 		}
