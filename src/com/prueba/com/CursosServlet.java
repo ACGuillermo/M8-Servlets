@@ -111,7 +111,7 @@ public class CursosServlet extends HttpServlet {
 	        if(sesion.getAttribute("nick") != null) {
 	        	String nick = (String) sesion.getAttribute("nick");
 	        	//COMPROBAR USER EN BBDD
-		        selectUser = (PreparedStatement) con.prepareStatement("select * from users where nick = ?");
+		        selectUser = con.prepareStatement("select * from users where nick = ?");
 		        
 		        selectUser.setString(1, nick);
 		        selectUser.execute();
@@ -120,7 +120,7 @@ public class CursosServlet extends HttpServlet {
 		        Boolean usuarioExiste = rs.next();
 		        
 		        if(usuarioExiste) {
-		        	insertCompra = (PreparedStatement) con.prepareStatement("INSERT INTO compra (nick, productos, pago, grado) values (?,?,?,?)");
+		        	insertCompra = con.prepareStatement("INSERT INTO compra (nick, productos, pago, grado) values (?,?,?,?)");
 		        	
 		        	insertCompra.setString(1, nick);
 		        	insertCompra.setString(2, cursosString);

@@ -105,7 +105,6 @@ public class registrarServlet extends HttpServlet {
 		Pattern patternPassword = Pattern.compile(regexPassword);
 		Matcher matcherPassword = patternPassword.matcher(password);
 		
-		PrintWriter writer = response.getWriter();
 		if(matcherEmail.matches() && matcherNombre.matches() && matcherPassword.matches()) {
 			
 			Connection con = null; 
@@ -124,7 +123,7 @@ public class registrarServlet extends HttpServlet {
 		        LOGGER.log(Level.FINE, "Connected to db");
 		        
 		        //COMPROBAR USER EN BBDD
-		        selectUser = (PreparedStatement) con.prepareStatement("select * from users where nick = ?");
+		        selectUser = con.prepareStatement("select * from users where nick = ?");
 		        
 		        selectUser.setString(1, nombre);
 		        selectUser.execute();
@@ -137,7 +136,7 @@ public class registrarServlet extends HttpServlet {
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
 					requestDispatcher.forward(request, response);
 		        }else {
-		        	insertUser = (PreparedStatement) con.prepareStatement("insert into users (nick, pass, email) values(?, ?, ?)");
+		        	insertUser = con.prepareStatement("insert into users (nick, pass, email) values(?, ?, ?)");
 			        
 			        
 			        insertUser.setString(1, nombre);
@@ -145,7 +144,7 @@ public class registrarServlet extends HttpServlet {
 			        insertUser.setString(3, email);
 			        
 			        insertUser.executeUpdate();
-			        LOGGER.log(Level.FINE, "User inserted");;
+			        LOGGER.log(Level.FINE, "User inserted");
 			        String sql = "SELECT * FROM users";
 			        stmt  = con.createStatement();
 		            rs    = stmt.executeQuery(sql);
@@ -166,7 +165,7 @@ public class registrarServlet extends HttpServlet {
 		        
 		        
 			}catch(Exception e){
-				e.printStackTrace();
+				LOGGER.log(Level.SEVERE, e.getStackTrace().toString());
 			}finally { 
 				closeResultSet(rs);
 				closeResultSet(rs2);
