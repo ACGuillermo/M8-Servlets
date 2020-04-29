@@ -29,6 +29,42 @@ public class ComentarioServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    private void closeConnection (Connection con) {
+    	try { 
+	        if (con != null) 
+	            con.close(); 
+	    } catch (SQLException sqle) {
+	    	System.out.println(sqle);
+	    }
+    }
+    
+    private void closeStatement (Statement stmt) {
+    	try { 
+	        if (stmt != null) 
+	            stmt.close(); 
+	    } catch (SQLException sqle) {
+	    	System.out.println(sqle);
+	    }
+    }
+    
+    private void closeResultSet (ResultSet rs) {
+    	try { 
+	        if (rs != null) 
+	            rs.close(); 
+	    } catch (SQLException sqle) {
+	    	System.out.println(sqle);
+	    }
+    }
+    
+    private void closeQuery (PreparedStatement query) {
+    	try { 
+	        if (query != null) 
+	            query.close(); 
+	    } catch (SQLException sqle) {
+	    	System.out.println(sqle);
+	    }
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -74,12 +110,6 @@ public class ComentarioServlet extends HttpServlet {
 		        stmt  = con.createStatement();
 	            rs2    = stmt.executeQuery(sql);
 	            
-	            // loop through the result set
-	            while (rs2.next()) {
-	                System.out.println(rs2.getString(comm) );
-	            }
-	            
-	            con.close();
 	            
 	            String destination = "/jsp/comentarioCorrecto.jsp";
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
@@ -87,7 +117,6 @@ public class ComentarioServlet extends HttpServlet {
 				request.setAttribute(comm, comentario);
 				requestDispatcher.forward(request, response);
 	        }else {
-	        	con.close();
 	        	
 	        	String destination = "/jsp/usuarioNoExiste.jsp";
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
@@ -96,44 +125,14 @@ public class ComentarioServlet extends HttpServlet {
 	        
 		}catch(Exception e){
 			e.printStackTrace();
-		}finally { 
-			try { 
-		        if (rs != null) 
-		            rs.close(); 
-		    } catch (SQLException sqle) {
-		    	System.out.println(sqle);
-		    }
-			try { 
-		        if (rs2 != null) 
-		            rs2.close(); 
-		    } catch (SQLException sqle) {
-		    	System.out.println(sqle);
-		    }
-		    try { 
-		        if (stmt != null) 
-		            stmt.close(); 
-		    } catch (SQLException sqle) {
-		    	System.out.println(sqle);
-		    }
-		    try { 
-		        if (selectUser != null) 
-		        	selectUser.close(); 
-		    } catch (SQLException sqle) {
-		    	System.out.println(sqle);
-		    }
-		    try { 
-		        if (insertCompra != null) 
-		        	insertCompra.close(); 
-		    } catch (SQLException sqle) {
-		    	System.out.println(sqle);
-		    }
-		    try { 
-		        if (con != null) 
-		            con.close(); 
-		    } catch (SQLException sqle)  {
-		    	System.out.println(sqle);
-		    }
-		}
+		}finally {
+			closeResultSet(rs);
+			closeResultSet(rs2);
+			closeStatement(stmt);
+			closeQuery(selectUser);
+			closeQuery(insertCompra);
+			closeConnection(con);
+		 }
 	}
 
 	/**
