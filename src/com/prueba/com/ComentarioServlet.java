@@ -32,7 +32,6 @@ public class ComentarioServlet extends HttpServlet {
      */
     public ComentarioServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
     
     private void closeConnection (Connection con) {
@@ -144,7 +143,6 @@ public class ComentarioServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

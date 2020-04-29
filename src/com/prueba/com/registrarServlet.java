@@ -35,7 +35,6 @@ public class registrarServlet extends HttpServlet {
      */
     public registrarServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
     
     private void closeConnection (Connection con) {
@@ -78,7 +77,6 @@ public class registrarServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -88,7 +86,6 @@ public class registrarServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		// TODO Auto-generated method stub
 		String nombre = request.getParameter("nombre");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
