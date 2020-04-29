@@ -174,8 +174,6 @@ public class registrarServlet extends HttpServlet {
 				closeConnection(con);
 			}
 			
-			
-			//response.sendRedirect(request.getContextPath() + "/jsp/correcto.jsp");
 		}else {
 			String destination = "/jsp/error.jsp";
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
