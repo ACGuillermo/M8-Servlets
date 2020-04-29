@@ -71,6 +71,8 @@ public class registrarServlet extends HttpServlet {
 			Statement stmt = null; 
 			ResultSet rs = null;
 			ResultSet rs2 = null;
+			PreparedStatement selectUser = null;
+			PreparedStatement insertUser = null;
 			
 			try {
 				  
@@ -81,7 +83,7 @@ public class registrarServlet extends HttpServlet {
 		        System.out.println("Opened database successfully");
 		        
 		        //COMPROBAR USER EN BBDD
-		        PreparedStatement selectUser = (PreparedStatement) con.prepareStatement("select * from users where nick = ?");
+		        selectUser = (PreparedStatement) con.prepareStatement("select * from users where nick = ?");
 		        
 		        selectUser.setString(1, nombre);
 		        selectUser.execute();
@@ -94,7 +96,7 @@ public class registrarServlet extends HttpServlet {
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
 					requestDispatcher.forward(request, response);
 		        }else {
-		        	PreparedStatement insertUser = (PreparedStatement) con.prepareStatement("insert into users (nick, pass, email) values(?, ?, ?)");
+		        	insertUser = (PreparedStatement) con.prepareStatement("insert into users (nick, pass, email) values(?, ?, ?)");
 			        
 			        
 			        insertUser.setString(1, nombre);
@@ -147,6 +149,18 @@ public class registrarServlet extends HttpServlet {
 			    try { 
 			        if (stmt != null) 
 			            stmt.close(); 
+			    } catch (SQLException sqle) {
+			    	System.out.println(sqle);
+			    }
+			    try { 
+			        if (selectUser != null) 
+			        	selectUser.close(); 
+			    } catch (SQLException sqle) {
+			    	System.out.println(sqle);
+			    }
+			    try { 
+			        if (insertUser != null) 
+			        	insertUser.close(); 
 			    } catch (SQLException sqle) {
 			    	System.out.println(sqle);
 			    }
