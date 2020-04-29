@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ComentarioServlet")
 public class ComentarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger LOGGER = Logger.getAnonymousLogger();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -35,7 +38,7 @@ public class ComentarioServlet extends HttpServlet {
 	        if (con != null) 
 	            con.close(); 
 	    } catch (SQLException sqle) {
-	    	System.out.println(sqle);
+	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
 	    }
     }
     
@@ -44,7 +47,7 @@ public class ComentarioServlet extends HttpServlet {
 	        if (stmt != null) 
 	            stmt.close(); 
 	    } catch (SQLException sqle) {
-	    	System.out.println(sqle);
+	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
 	    }
     }
     
@@ -53,7 +56,7 @@ public class ComentarioServlet extends HttpServlet {
 	        if (rs != null) 
 	            rs.close(); 
 	    } catch (SQLException sqle) {
-	    	System.out.println(sqle);
+	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
 	    }
     }
     
@@ -62,7 +65,7 @@ public class ComentarioServlet extends HttpServlet {
 	        if (query != null) 
 	            query.close(); 
 	    } catch (SQLException sqle) {
-	    	System.out.println(sqle);
+	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
 	    }
     }
 

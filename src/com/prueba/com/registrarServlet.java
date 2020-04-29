@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,6 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/registrarServlet")
 public class registrarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger LOGGER = Logger.getAnonymousLogger();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -39,6 +41,7 @@ public class registrarServlet extends HttpServlet {
 	        if (con != null) 
 	            con.close(); 
 	    } catch (SQLException sqle) {
+	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
 	    }
     }
     
@@ -47,6 +50,7 @@ public class registrarServlet extends HttpServlet {
 	        if (stmt != null) 
 	            stmt.close(); 
 	    } catch (SQLException sqle) {
+	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
 	    }
     }
     
@@ -55,6 +59,7 @@ public class registrarServlet extends HttpServlet {
 	        if (rs != null) 
 	            rs.close(); 
 	    } catch (SQLException sqle) {
+	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
 	    }
     }
     
@@ -63,6 +68,7 @@ public class registrarServlet extends HttpServlet {
 	        if (query != null) 
 	            query.close(); 
 	    } catch (SQLException sqle) {
+	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
 	    }
     }
 

@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,6 +24,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger LOGGER = Logger.getAnonymousLogger();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -29,6 +32,42 @@ public class LoginServlet extends HttpServlet {
     public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
+    }
+    
+    private void closeConnection (Connection con) {
+    	try { 
+	        if (con != null) 
+	            con.close(); 
+	    } catch (SQLException sqle) {
+	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
+	    }
+    }
+    
+    private void closeStatement (Statement stmt) {
+    	try { 
+	        if (stmt != null) 
+	            stmt.close(); 
+	    } catch (SQLException sqle) {
+	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
+	    }
+    }
+    
+    private void closeResultSet (ResultSet rs) {
+    	try { 
+	        if (rs != null) 
+	            rs.close(); 
+	    } catch (SQLException sqle) {
+	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
+	    }
+    }
+    
+    private void closeQuery (PreparedStatement query) {
+    	try { 
+	        if (query != null) 
+	            query.close(); 
+	    } catch (SQLException sqle) {
+	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
+	    }
     }
 
 	/**
@@ -89,30 +128,10 @@ public class LoginServlet extends HttpServlet {
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally { 
-			try { 
-		        if (rs != null) 
-		            rs.close(); 
-		    } catch (SQLException sqle) {
-		    	System.out.println(sqle);
-		    }
-		    try { 
-		        if (stmt != null) 
-		            stmt.close(); 
-		    } catch (SQLException sqle) {
-		    	System.out.println(sqle);
-		    }
-		    try { 
-		        if (selectUser != null) 
-		        	selectUser.close(); 
-		    } catch (SQLException sqle) {
-		    	System.out.println(sqle);
-		    }
-		    try { 
-		        if (con != null) 
-		            con.close(); 
-		    } catch (SQLException sqle)  {
-		    	System.out.println(sqle);
-		    }
+			closeResultSet(rs);
+			closeStatement(stmt);
+			closeQuery(selectUser);
+			closeConnection(con);
 		}
 	}
 
