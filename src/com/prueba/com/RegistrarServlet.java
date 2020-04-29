@@ -5,8 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import javax.servlet.RequestDispatcher;
@@ -21,14 +19,14 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class registrarServlet
  */
 @WebServlet("/registrarServlet")
-public class registrarServlet extends HttpServlet {
+public class RegistrarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = Logger.getAnonymousLogger();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public registrarServlet() {
+    public RegistrarServlet() {
         super();
     }
 
