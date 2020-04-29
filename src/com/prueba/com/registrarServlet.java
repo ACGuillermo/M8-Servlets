@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.sql.Statement;
@@ -38,7 +39,6 @@ public class registrarServlet extends HttpServlet {
 	        if (con != null) 
 	            con.close(); 
 	    } catch (SQLException sqle) {
-	    	System.out.println(sqle);
 	    }
     }
     
@@ -47,7 +47,6 @@ public class registrarServlet extends HttpServlet {
 	        if (stmt != null) 
 	            stmt.close(); 
 	    } catch (SQLException sqle) {
-	    	System.out.println(sqle);
 	    }
     }
     
@@ -56,7 +55,6 @@ public class registrarServlet extends HttpServlet {
 	        if (rs != null) 
 	            rs.close(); 
 	    } catch (SQLException sqle) {
-	    	System.out.println(sqle);
 	    }
     }
     
@@ -65,7 +63,6 @@ public class registrarServlet extends HttpServlet {
 	        if (query != null) 
 	            query.close(); 
 	    } catch (SQLException sqle) {
-	    	System.out.println(sqle);
 	    }
     }
 
