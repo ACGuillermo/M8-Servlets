@@ -68,6 +68,9 @@ public class registrarServlet extends HttpServlet {
 		if(matcherEmail.matches() && matcherNombre.matches() && matcherPassword.matches()) {
 			
 			Connection con = null; 
+			Statement stmt = null; 
+			ResultSet rs = null;
+			ResultSet rs2 = null;
 			
 			try {
 				  
@@ -82,7 +85,7 @@ public class registrarServlet extends HttpServlet {
 		        
 		        selectUser.setString(1, nombre);
 		        selectUser.execute();
-		        ResultSet rs2 = selectUser.getResultSet();
+		        rs2 = selectUser.getResultSet();
 		        Boolean usuarioExiste = rs2.next();
 		        if(usuarioExiste) {
 		        	con.close();
@@ -101,8 +104,8 @@ public class registrarServlet extends HttpServlet {
 			        insertUser.executeUpdate();
 			        System.out.println("Insertado correctamente, EN PRINCIPIO.");
 			        String sql = "SELECT * FROM users";
-			        Statement stmt  = con.createStatement();
-		            ResultSet rs    = stmt.executeQuery(sql);
+			        stmt  = con.createStatement();
+		            rs    = stmt.executeQuery(sql);
 		            
 		            // loop through the result set
 		            while (rs.next()) {
@@ -129,11 +132,29 @@ public class registrarServlet extends HttpServlet {
 			}catch(Exception e){
 				e.printStackTrace();
 			}finally { 
+				try { 
+			        if (rs != null) 
+			            rs.close(); 
+			    } catch (SQLException sqle) {
+			    	System.out.println(sqle);
+			    }
+				try { 
+			        if (rs2 != null) 
+			            rs2.close(); 
+			    } catch (SQLException sqle) {
+			    	System.out.println(sqle);
+			    }
+			    try { 
+			        if (stmt != null) 
+			            stmt.close(); 
+			    } catch (SQLException sqle) {
+			    	System.out.println(sqle);
+			    }
 			    try { 
 			        if (con != null) 
 			            con.close(); 
 			    } catch (SQLException sqle)  {
-			    	System.out.print(sqle);
+			    	System.out.println(sqle);
 			    }
 			}
 			
