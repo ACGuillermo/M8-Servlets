@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -47,20 +49,25 @@ public class LoginServlet extends HttpServlet {
 		String nick = request.getParameter("nick");
 		String password = request.getParameter("password");
 		
+		Connection con = null; 
+		Statement stmt = null; 
+		ResultSet rs = null;
+		PreparedStatement selectUser = null;
+		
 		try {
 			new org.sqlite.JDBC();
 	        Class.forName("org.sqlite.JDBC");
 	        String url = "jdbc:sqlite:C:\\Users\\Guillermo\\Desktop\\WorkStation\\M8-Servlets\\WebContent\\WEB-INF\\lib\\test.db";
-	        Connection con = DriverManager.getConnection(url);
+	        con = DriverManager.getConnection(url);
 	        System.out.println("Opened database successfully");
 	        
 	      //COMPROBAR USER EN BBDD
-	        PreparedStatement selectUser = (PreparedStatement) con.prepareStatement("select * from users where nick = ? and pass = ?");
+	        selectUser = (PreparedStatement) con.prepareStatement("select * from users where nick = ? and pass = ?");
 	        
 	        selectUser.setString(1, nick);
 	        selectUser.setString(2, password);
 	        selectUser.execute();
-	        ResultSet rs = selectUser.getResultSet();
+	        rs = selectUser.getResultSet();
 	        
 	        Boolean usuarioExiste = rs.next();
 	        
@@ -81,6 +88,31 @@ public class LoginServlet extends HttpServlet {
 	        
 		}catch(Exception e){
 			e.printStackTrace();
+		}finally { 
+			try { 
+		        if (rs != null) 
+		            rs.close(); 
+		    } catch (SQLException sqle) {
+		    	System.out.println(sqle);
+		    }
+		    try { 
+		        if (stmt != null) 
+		            stmt.close(); 
+		    } catch (SQLException sqle) {
+		    	System.out.println(sqle);
+		    }
+		    try { 
+		        if (selectUser != null) 
+		        	selectUser.close(); 
+		    } catch (SQLException sqle) {
+		    	System.out.println(sqle);
+		    }
+		    try { 
+		        if (con != null) 
+		            con.close(); 
+		    } catch (SQLException sqle)  {
+		    	System.out.println(sqle);
+		    }
 		}
 	}
 
