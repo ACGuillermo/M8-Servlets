@@ -65,7 +65,9 @@ public class CursosServlet extends HttpServlet {
 		Connection con = null; 
 		Statement stmt = null; 
 		ResultSet rs = null;
+		ResultSet rs2 = null;
 		PreparedStatement selectUser = null;
+		PreparedStatement insertCompra = null;
 		try {
 			new org.sqlite.JDBC();
 	        Class.forName("org.sqlite.JDBC");
@@ -85,7 +87,7 @@ public class CursosServlet extends HttpServlet {
 		        Boolean usuarioExiste = rs.next();
 		        
 		        if(usuarioExiste) {
-		        	PreparedStatement insertCompra = (PreparedStatement) con.prepareStatement("INSERT INTO compra (nick, productos, pago, grado) values (?,?,?,?)");
+		        	insertCompra = (PreparedStatement) con.prepareStatement("INSERT INTO compra (nick, productos, pago, grado) values (?,?,?,?)");
 		        	
 		        	insertCompra.setString(1, nick);
 		        	insertCompra.setString(2, cursosString);
@@ -97,7 +99,7 @@ public class CursosServlet extends HttpServlet {
 		        	
 		        	String sql = "SELECT * FROM compra";
 			        stmt  = con.createStatement();
-		            ResultSet rs2    = stmt.executeQuery(sql);
+		            rs2    = stmt.executeQuery(sql);
 		            
 		            // loop through the result set
 		            while (rs2.next()) {
@@ -143,6 +145,12 @@ public class CursosServlet extends HttpServlet {
 		    } catch (SQLException sqle) {
 		    	System.out.println(sqle);
 		    }
+			try { 
+		        if (rs2 != null) 
+		            rs2.close(); 
+		    } catch (SQLException sqle) {
+		    	System.out.println(sqle);
+		    }
 		    try { 
 		        if (stmt != null) 
 		            stmt.close(); 
@@ -152,6 +160,12 @@ public class CursosServlet extends HttpServlet {
 		    try { 
 		        if (selectUser != null) 
 		        	selectUser.close(); 
+		    } catch (SQLException sqle) {
+		    	System.out.println(sqle);
+		    }
+		    try { 
+		        if (insertCompra != null) 
+		        	insertCompra.close(); 
 		    } catch (SQLException sqle) {
 		    	System.out.println(sqle);
 		    }
