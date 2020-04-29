@@ -78,7 +78,9 @@ public class ComentarioServlet extends HttpServlet {
 		String comm = "comentario";
 		String comentario = request.getParameter(comm);
 		
-		Connection con = null; 
+		DataConnection dataConnection = new DataConnection();
+		Connection con = dataConnection.getConnection();
+		
 		Statement stmt = null; 
 		ResultSet rs = null;
 		ResultSet rs2 = null;
@@ -86,12 +88,7 @@ public class ComentarioServlet extends HttpServlet {
 		PreparedStatement insertCompra = null;
 		
 		try {
-			new org.sqlite.JDBC();
-	        Class.forName("org.sqlite.JDBC");
-	        String url = "jdbc:sqlite:C:\\Users\\Guillermo\\Desktop\\WorkStation\\M8-Servlets\\WebContent\\WEB-INF\\lib\\test.db";
-	        con = DriverManager.getConnection(url);
-	        LOGGER.log(Level.FINE, "DB openned");
-
+			
 	        if(sesion.getAttribute("nick") != null) {
 	        	String nick = (String) sesion.getAttribute("nick");
 	        	//COMPROBAR USER EN BBDD
@@ -130,12 +127,12 @@ public class ComentarioServlet extends HttpServlet {
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally {
-			closeResultSet(rs);
-			closeResultSet(rs2);
-			closeStatement(stmt);
-			closeQuery(selectUser);
-			closeQuery(insertCompra);
-			closeConnection(con);
+			dataConnection.closeResultSet(rs);
+			dataConnection.closeResultSet(rs2);
+			dataConnection.closeStatement(stmt);
+			dataConnection.closeQuery(selectUser);
+			dataConnection.closeQuery(insertCompra);
+			dataConnection.closeConnection(con);
 		 }
 	}
 
