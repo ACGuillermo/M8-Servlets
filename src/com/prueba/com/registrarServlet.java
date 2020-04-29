@@ -115,7 +115,7 @@ public class registrarServlet extends HttpServlet {
 		        
 		        
 			}catch(Exception e){
-				LOGGER.log(Level.SEVERE, e.getStackTrace().toString());
+				LOGGER.log(Level.SEVERE, e.toString());
 			}finally { 
 				dataConnection.closeResultSet(rs);
 				dataConnection.closeResultSet(rs2);

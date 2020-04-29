@@ -5,6 +5,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +22,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/CursosServlet")
 public class CursosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger LOGGER = Logger.getAnonymousLogger();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -117,7 +121,7 @@ public class CursosServlet extends HttpServlet {
 	        
 	        
 		}catch(Exception e){
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, e.toString());
 		}finally { 
 			dataConnection.closeResultSet(rs);
 			dataConnection.closeResultSet(rs2);
