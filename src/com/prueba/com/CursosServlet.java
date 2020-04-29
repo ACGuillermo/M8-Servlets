@@ -33,42 +33,6 @@ public class CursosServlet extends HttpServlet {
     public CursosServlet() {
         super();
     }
-    
-    private void closeConnection (Connection con) {
-    	try { 
-	        if (con != null) 
-	            con.close(); 
-	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
-	    }
-    }
-    
-    private void closeStatement (Statement stmt) {
-    	try { 
-	        if (stmt != null) 
-	            stmt.close(); 
-	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
-	    }
-    }
-    
-    private void closeResultSet (ResultSet rs) {
-    	try { 
-	        if (rs != null) 
-	            rs.close(); 
-	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
-	    }
-    }
-    
-    private void closeQuery (PreparedStatement query) {
-    	try { 
-	        if (query != null) 
-	            query.close(); 
-	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
-	    }
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -93,18 +57,15 @@ public class CursosServlet extends HttpServlet {
 		//DROPDOWN
 		String grado = request.getParameter("grado");
 		
-		Connection con = null; 
+		
+		DataConnection dataConnection = new DataConnection();
+		Connection con = dataConnection.getConnection();
 		Statement stmt = null; 
 		ResultSet rs = null;
 		ResultSet rs2 = null;
 		PreparedStatement selectUser = null;
 		PreparedStatement insertCompra = null;
 		try {
-			new org.sqlite.JDBC();
-	        Class.forName("org.sqlite.JDBC");
-	        String url = "jdbc:sqlite:C:\\Users\\Guillermo\\Desktop\\WorkStation\\M8-Servlets\\WebContent\\WEB-INF\\lib\\test.db";
-	        con = DriverManager.getConnection(url);
-	        LOGGER.log(Level.FINE, "DB opened");
 	        
 	        if(sesion.getAttribute("nick") != null) {
 	        	String nick = (String) sesion.getAttribute("nick");
@@ -165,12 +126,12 @@ public class CursosServlet extends HttpServlet {
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally { 
-			closeResultSet(rs);
-			closeResultSet(rs2);
-			closeStatement(stmt);
-			closeQuery(selectUser);
-			closeQuery(insertCompra);
-			closeConnection(con);
+			dataConnection.closeResultSet(rs);
+			dataConnection.closeResultSet(rs2);
+			dataConnection.closeStatement(stmt);
+			dataConnection.closeQuery(selectUser);
+			dataConnection.closeQuery(insertCompra);
+			dataConnection.closeConnection(con);
 		}
 	}
 

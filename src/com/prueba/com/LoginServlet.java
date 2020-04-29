@@ -33,42 +33,6 @@ public class LoginServlet extends HttpServlet {
     public LoginServlet() {
         super();
     }
-    
-    private void closeConnection (Connection con) {
-    	try { 
-	        if (con != null) 
-	            con.close(); 
-	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
-	    }
-    }
-    
-    private void closeStatement (Statement stmt) {
-    	try { 
-	        if (stmt != null) 
-	            stmt.close(); 
-	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
-	    }
-    }
-    
-    private void closeResultSet (ResultSet rs) {
-    	try { 
-	        if (rs != null) 
-	            rs.close(); 
-	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
-	    }
-    }
-    
-    private void closeQuery (PreparedStatement query) {
-    	try { 
-	        if (query != null) 
-	            query.close(); 
-	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
-	    }
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -87,7 +51,8 @@ public class LoginServlet extends HttpServlet {
 		String nick = request.getParameter("nick");
 		String password = request.getParameter("password");
 		
-		Connection con = null; 
+		DataConnection dataConnection = new DataConnection();
+		Connection con = dataConnection.getConnection();
 		Statement stmt = null; 
 		ResultSet rs = null;
 		PreparedStatement selectUser = null;
@@ -127,10 +92,10 @@ public class LoginServlet extends HttpServlet {
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally { 
-			closeResultSet(rs);
-			closeStatement(stmt);
-			closeQuery(selectUser);
-			closeConnection(con);
+			dataConnection.closeResultSet(rs);
+			dataConnection.closeStatement(stmt);
+			dataConnection.closeQuery(selectUser);
+			dataConnection.closeConnection(con);
 		}
 	}
 

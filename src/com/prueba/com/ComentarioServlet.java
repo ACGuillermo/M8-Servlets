@@ -33,42 +33,6 @@ public class ComentarioServlet extends HttpServlet {
     public ComentarioServlet() {
         super();
     }
-    
-    private void closeConnection (Connection con) {
-    	try { 
-	        if (con != null) 
-	            con.close(); 
-	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
-	    }
-    }
-    
-    private void closeStatement (Statement stmt) {
-    	try { 
-	        if (stmt != null) 
-	            stmt.close(); 
-	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
-	    }
-    }
-    
-    private void closeResultSet (ResultSet rs) {
-    	try { 
-	        if (rs != null) 
-	            rs.close(); 
-	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
-	    }
-    }
-    
-    private void closeQuery (PreparedStatement query) {
-    	try { 
-	        if (query != null) 
-	            query.close(); 
-	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
-	    }
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
