@@ -9,6 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -66,12 +67,14 @@ public class registrarServlet extends HttpServlet {
 		PrintWriter writer = response.getWriter();
 		if(matcherEmail.matches() && matcherNombre.matches() && matcherPassword.matches()) {
 			
+			Connection con = null; 
+			
 			try {
 				  
 		        new org.sqlite.JDBC();
 		        Class.forName("org.sqlite.JDBC");
 		        String url = "jdbc:sqlite:C:\\Users\\Guillermo\\Desktop\\WorkStation\\M8-Servlets\\WebContent\\WEB-INF\\lib\\test.db";
-		        Connection con = DriverManager.getConnection(url);
+		        con = DriverManager.getConnection(url);
 		        System.out.println("Opened database successfully");
 		        
 		        //COMPROBAR USER EN BBDD
@@ -122,11 +125,16 @@ public class registrarServlet extends HttpServlet {
 
 		        }
 		        
-		        		        
-		        
 		        
 			}catch(Exception e){
 				e.printStackTrace();
+			}finally { 
+			    try { 
+			        if (con != null) 
+			            con.close(); 
+			    } catch (SQLException sqle)  {
+			    	System.out.print(sqle);
+			    }
 			}
 			
 			
