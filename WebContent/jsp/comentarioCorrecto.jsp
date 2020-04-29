@@ -30,7 +30,7 @@
     <!-- NAVBAR -->
     	<h1>Comentario enviado!</h1>
     	<p>Name: ${requestScope.name} </p>
-    	<p>Email: ${requestScope.email} </p>
+    	<p>Comentario: ${requestScope.comentario} </p>
     
 	
 </body>

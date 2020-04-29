@@ -84,10 +84,6 @@ public class CursosServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sesion = request.getSession();
-        
-		
-		
-		//RECOGER DATOS POST
 		
 		//CHECKBOX
 		String[] cursos = request.getParameterValues("cursos");

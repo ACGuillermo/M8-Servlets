@@ -30,10 +30,10 @@
     <!-- NAVBAR -->
     	<div class="container">
 	    	<h1>Cursos adquiridos!</h1>
-	    	<p><b>Nick</b>: ${requestScope.nick} </p>
-	    	<p><b>Cursos</b>: ${requestScope.producto} </p>
-	    	<p><b>Grado</b>: ${requestScope.grado} </p>
-	    	<p><b>Metodo de pago</b>: ${requestScope.pago} </p>
+	    	<p><strong>Nick</strong>: ${requestScope.nick} </p>
+	    	<p><strong>Cursos</strong>: ${requestScope.producto} </p>
+	    	<p><strong>Grado</strong>: ${requestScope.grado} </p>
+	    	<p><strong>Metodo de pago</strong>: ${requestScope.pago} </p>
     	</div>
     	
     	
