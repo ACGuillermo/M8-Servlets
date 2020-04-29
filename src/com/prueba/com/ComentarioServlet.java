@@ -35,7 +35,8 @@ public class ComentarioServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nick = request.getParameter("nick");
-		String comentario = request.getParameter("comentario");
+		String comm = "comentario";
+		String comentario = request.getParameter(comm);
 		
 		Connection con = null; 
 		Statement stmt = null; 
@@ -75,7 +76,7 @@ public class ComentarioServlet extends HttpServlet {
 	            
 	            // loop through the result set
 	            while (rs2.next()) {
-	                System.out.println(rs2.getString("comentario") );
+	                System.out.println(rs2.getString(comm) );
 	            }
 	            
 	            con.close();
@@ -83,7 +84,7 @@ public class ComentarioServlet extends HttpServlet {
 	            String destination = "/jsp/comentarioCorrecto.jsp";
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
 				request.setAttribute("nick", nick);
-				request.setAttribute("comentario", comentario);
+				request.setAttribute(comm, comentario);
 				requestDispatcher.forward(request, response);
 	        }else {
 	        	con.close();
