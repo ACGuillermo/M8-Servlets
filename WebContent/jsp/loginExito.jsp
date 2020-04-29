@@ -28,7 +28,6 @@
     </nav>
     <!-- NAVBAR -->
     	<h1>Logeado como: ${sessionScope.nick} </h1>
-    	<a href="../LogoutServlet" class="btn btn-info">LOGOUT</a>
     
 	
 </body>
