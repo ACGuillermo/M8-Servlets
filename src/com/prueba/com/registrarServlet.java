@@ -132,7 +132,7 @@ public class registrarServlet extends HttpServlet {
 		        Boolean usuarioExiste = rs2.next();
 		        if(usuarioExiste) {
 		        	con.close();
-		        	System.out.println("Usuario ya existe!");
+		        	LOGGER.log(Level.FINE, "Usuario existe");
 		        	String destination = "/jsp/error.jsp";
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
 					requestDispatcher.forward(request, response);

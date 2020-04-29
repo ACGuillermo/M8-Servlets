@@ -99,7 +99,7 @@ public class LoginServlet extends HttpServlet {
 	        Class.forName("org.sqlite.JDBC");
 	        String url = "jdbc:sqlite:C:\\Users\\Guillermo\\Desktop\\WorkStation\\M8-Servlets\\WebContent\\WEB-INF\\lib\\test.db";
 	        con = DriverManager.getConnection(url);
-	        System.out.println("Opened database successfully");
+	        LOGGER.log(Level.FINE, "Connected to db");
 	        
 	      //COMPROBAR USER EN BBDD
 	        selectUser = (PreparedStatement) con.prepareStatement("select * from users where nick = ? and pass = ?");

@@ -92,15 +92,12 @@ public class CursosServlet extends HttpServlet {
 		//CHECKBOX
 		String[] cursos = request.getParameterValues("cursos");
 		String cursosString = String.join(",", cursos);
-		System.out.println(cursosString);
 		
 		//RADIO
 		String pago = request.getParameter("pagos");
-		System.out.println(pago);
 		
 		//DROPDOWN
 		String grado = request.getParameter("grado");
-		System.out.println(grado);
 		
 		Connection con = null; 
 		Statement stmt = null; 
@@ -113,7 +110,7 @@ public class CursosServlet extends HttpServlet {
 	        Class.forName("org.sqlite.JDBC");
 	        String url = "jdbc:sqlite:C:\\Users\\Guillermo\\Desktop\\WorkStation\\M8-Servlets\\WebContent\\WEB-INF\\lib\\test.db";
 	        con = DriverManager.getConnection(url);
-	        System.out.println("Opened database successfully");
+	        LOGGER.log(Level.FINE, "DB opened");
 	        
 	        if(sesion.getAttribute("nick") != null) {
 	        	String nick = (String) sesion.getAttribute("nick");
@@ -140,11 +137,6 @@ public class CursosServlet extends HttpServlet {
 		        	String sql = "SELECT * FROM compra";
 			        stmt  = con.createStatement();
 		            rs2    = stmt.executeQuery(sql);
-		            
-		            // loop through the result set
-		            while (rs2.next()) {
-		                System.out.println(rs2.getString("productos") );
-		            }
 		            
 		            con.close();
 		            
