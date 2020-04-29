@@ -22,7 +22,7 @@ public class DataConnection {
 	        con = DriverManager.getConnection(url);
 		}
 		catch(Exception e) {
-			LOGGER.log(Level.SEVERE, e.getStackTrace().toString());
+			LOGGER.log(Level.SEVERE, e.toString());
 		}
  
 	}
