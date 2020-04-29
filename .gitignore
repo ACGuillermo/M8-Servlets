@@ -1,4 +1,4 @@
 /target/
-.c
-.cpp
-.objc
+*.c
+*.cpp
+*.objc
