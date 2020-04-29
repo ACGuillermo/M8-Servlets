@@ -49,19 +49,9 @@ public class registrarServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		
-		String regexEmail = "^[A-Za-z0-9+_.-]+@(.+)$";
-		Pattern patternEmail = Pattern.compile(regexEmail);
-		Matcher matcherEmail = patternEmail.matcher(email);
+		Rgx rgx = new Rgx();
 		
-		String regexNombre = "^[a-zA-Z0-9]{1,10}$";
-		Pattern patternNombre = Pattern.compile(regexNombre);
-		Matcher matcherNombre = patternNombre.matcher(nombre);
-		
-		String regexPassword = "^.{8,}$";
-		Pattern patternPassword = Pattern.compile(regexPassword);
-		Matcher matcherPassword = patternPassword.matcher(password);
-		
-		if(matcherEmail.matches() && matcherNombre.matches() && matcherPassword.matches()) {
+		if(rgx.emailRegex(email) && rgx.nombreRegex(nombre) && rgx.passwordRegex(password)) {
 			
 			DataConnection dataConnection = new DataConnection();
 			Connection con = dataConnection.getConnection();
