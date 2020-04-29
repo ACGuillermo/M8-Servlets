@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -19,6 +20,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 /**
  * Servlet implementation class registrarServlet
@@ -41,7 +43,7 @@ public class registrarServlet extends HttpServlet {
 	        if (con != null) 
 	            con.close(); 
 	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
+	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
 	    }
     }
     
@@ -50,7 +52,7 @@ public class registrarServlet extends HttpServlet {
 	        if (stmt != null) 
 	            stmt.close(); 
 	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
+	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
 	    }
     }
     
@@ -59,7 +61,7 @@ public class registrarServlet extends HttpServlet {
 	        if (rs != null) 
 	            rs.close(); 
 	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
+	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
 	    }
     }
     
@@ -68,7 +70,7 @@ public class registrarServlet extends HttpServlet {
 	        if (query != null) 
 	            query.close(); 
 	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
+	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
 	    }
     }
 

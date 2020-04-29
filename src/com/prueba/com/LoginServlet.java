@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 	        if (con != null) 
 	            con.close(); 
 	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
+	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
 	    }
     }
     
@@ -48,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 	        if (stmt != null) 
 	            stmt.close(); 
 	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
+	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
 	    }
     }
     
@@ -57,7 +58,7 @@ public class LoginServlet extends HttpServlet {
 	        if (rs != null) 
 	            rs.close(); 
 	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
+	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
 	    }
     }
     
@@ -66,7 +67,7 @@ public class LoginServlet extends HttpServlet {
 	        if (query != null) 
 	            query.close(); 
 	    } catch (SQLException sqle) {
-	    	LOGGER.log(Level.SEVERE, sqle.getStackTrace().toString());
+	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
 	    }
     }
 
