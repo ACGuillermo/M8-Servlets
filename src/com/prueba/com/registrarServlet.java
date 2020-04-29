@@ -119,7 +119,7 @@ public class registrarServlet extends HttpServlet {
 		        Class.forName("org.sqlite.JDBC");
 		        String url = "jdbc:sqlite:C:\\Users\\Guillermo\\Desktop\\WorkStation\\M8-Servlets\\WebContent\\WEB-INF\\lib\\test.db";
 		        con = DriverManager.getConnection(url);
-		        System.out.println("Opened database successfully");
+		        LOGGER.log(Level.FINE, "Connected to db");
 		        
 		        //COMPROBAR USER EN BBDD
 		        selectUser = (PreparedStatement) con.prepareStatement("select * from users where nick = ?");
@@ -143,17 +143,10 @@ public class registrarServlet extends HttpServlet {
 			        insertUser.setString(3, email);
 			        
 			        insertUser.executeUpdate();
-			        System.out.println("Insertado correctamente, EN PRINCIPIO.");
+			        LOGGER.log(Level.FINE, "User inserted");;
 			        String sql = "SELECT * FROM users";
 			        stmt  = con.createStatement();
 		            rs    = stmt.executeQuery(sql);
-		            
-		            // loop through the result set
-		            while (rs.next()) {
-		                System.out.println(rs.getString("nick") );
-		            }
-		            
-		            
 		            
 		            con.close();
 		            
