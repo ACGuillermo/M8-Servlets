@@ -95,7 +95,7 @@ public class ComentarioServlet extends HttpServlet {
 	        if(sesion.getAttribute("nick") != null) {
 	        	String nick = (String) sesion.getAttribute("nick");
 	        	//COMPROBAR USER EN BBDD
-		        selectUser = (PreparedStatement) con.prepareStatement("select * from users where nick = ?");
+		        selectUser = con.prepareStatement("select * from users where nick = ?");
 		        
 		        selectUser.setString(1, nick);
 		        selectUser.execute();

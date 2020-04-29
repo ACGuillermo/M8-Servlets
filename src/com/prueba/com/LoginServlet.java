@@ -100,7 +100,7 @@ public class LoginServlet extends HttpServlet {
 	        LOGGER.log(Level.FINE, "Connected to db");
 	        
 	      //COMPROBAR USER EN BBDD
-	        selectUser = (PreparedStatement) con.prepareStatement("select * from users where nick = ? and pass = ?");
+	        selectUser = con.prepareStatement("select * from users where nick = ? and pass = ?");
 	        
 	        selectUser.setString(1, nick);
 	        selectUser.setString(2, password);
