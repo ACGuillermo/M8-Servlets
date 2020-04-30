@@ -6,6 +6,16 @@ import static org.junit.Assert.assertTrue;
 
 import java.sql.SQLException;
 
+
+/**
+* 
+* TestUnit.java
+* Class implementation used for testing methods with Junit.
+* @author  Guillermo
+* @since   2020-04-30
+*  
+*/
+
 public class TestUnit {
    
    @Test

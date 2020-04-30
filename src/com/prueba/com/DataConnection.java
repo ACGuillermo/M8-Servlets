@@ -10,6 +10,14 @@ import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+* 
+* DataConnection.java
+* Class implementation for managing database connections and querys.
+* @author  Guillermo
+* @since   2020-04-30
+*  
+*/
 public class DataConnection {
 	private static final Logger LOGGER = Logger.getAnonymousLogger();
 	private Connection con = null;

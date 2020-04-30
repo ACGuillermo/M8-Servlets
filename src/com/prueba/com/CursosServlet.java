@@ -17,7 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class CursosServlet
+ * CursosServlet.java
+ * Servlet implementation class CursosServlet for inserting cursos selected in database
+ * @author  Guillermo
+ * @since   2020-04-30
  */
 @WebServlet("/CursosServlet")
 public class CursosServlet extends HttpServlet {

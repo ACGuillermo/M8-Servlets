@@ -16,7 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 
 /**
- * Servlet implementation class registrarServlet
+ * RegistrarServlet.java
+ * Servlet implementation class registrarServlet for managing registration
+ * @author  Guillermo
+ * @since   2020-04-30
  */
 @WebServlet("/registrarServlet")
 public class RegistrarServlet extends HttpServlet {

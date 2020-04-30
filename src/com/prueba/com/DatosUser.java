@@ -17,7 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class CursosUser
+ * DatosUser.java
+ * Servlet implementation class DatosUser for retrieving user data from database
+ * @author  Guillermo
+ * @since   2020-04-30
  */
 @WebServlet("/CursosUser")
 public class DatosUser extends HttpServlet {

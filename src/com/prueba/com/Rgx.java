@@ -3,6 +3,15 @@ package com.prueba.com;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+/**
+* 
+* Rgx.java
+* Class implementation for checking different regex matching
+* @author  Guillermo
+* @since   2020-04-30
+*  
+*/
 public class Rgx {
 	String regexEmail;
 	String regexNombre;

@@ -17,7 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class ComentarioServlet
+ * ComentarioServlet.java
+ * Servlet implementation class ComentarioServlet for inserting comentarios in database
+ * @author  Guillermo
+ * @since   2020-04-30
  */
 @WebServlet("/ComentarioServlet")
 public class ComentarioServlet extends HttpServlet {
