@@ -18,6 +18,14 @@ import java.sql.SQLException;
 
 public class TestUnit {
    
+	/**
+	* 
+	* testGetConnection
+	* Method for testing getConnection().
+	* @author  Guillermo
+	* @since   2020-04-30
+	*  
+	*/
    @Test
    public void testGetConnection() {
 	   DataConnection dataConnection = new DataConnection();
@@ -25,6 +33,15 @@ public class TestUnit {
 	   dataConnection.closeConnection(dataConnection.getConnection());
    }
    
+   
+   /**
+   * 
+   * closeConnection
+   * Method for testing closeConnection.
+   * @author  Guillermo
+   * @since   2020-04-30
+   *  
+   */
    @Test
    public void closeConnection() throws SQLException {
 	   DataConnection dataConnection = new DataConnection();
@@ -33,7 +50,14 @@ public class TestUnit {
 	   assertTrue(dataConnection.getConnection().isClosed());
    }
    
-   
+   /**
+   * 
+   * emailRegex
+   * Method for testing emailRegex. 
+   * @author  Guillermo
+   * @since   2020-04-30
+   *  
+   */
    @Test
    public void emailRegex() {
 	   Rgx rgx = new Rgx();
@@ -48,6 +72,14 @@ public class TestUnit {
 	   assertTrue(rgx.emailRegex("1@as.com"));
    }
    
+   /**
+   * 
+   * nombreRegex
+   * Method for testing nombreRegex
+   * @author  Guillermo
+   * @since   2020-04-30
+   *  
+   */
    @Test
    public void nombreRegex( ) {
 	   Rgx rgx = new Rgx();
@@ -64,6 +96,14 @@ public class TestUnit {
 	   assertFalse(rgx.nombreRegex("12345678910"));
    }
    
+   /**
+   * 
+   * passwordRegex
+   * Method for testing passwordRegex
+   * @author  Guillermo
+   * @since   2020-04-30
+   *  
+   */
    @Test
    public void passwordRegex( ) {
 	   Rgx rgx = new Rgx();
@@ -75,6 +115,14 @@ public class TestUnit {
 	   assertFalse(rgx.passwordRegex("abcdefg"));
    }
    
+   /**
+   * 
+   * checkUser
+   * Method for testing checkUser
+   * @author  Guillermo
+   * @since   2020-04-30
+   *  
+   */
    @Test
    public void checkUser( ) throws SQLException {
 	   DataConnection dataConnection = new DataConnection();
@@ -87,6 +135,14 @@ public class TestUnit {
 	   dataConnection.closeConnection(dataConnection.getConnection());
    }
    
+   /**
+   * 
+   * insertUser
+   * Method for testing insertUser
+   * @author  Guillermo
+   * @since   2020-04-30
+   *  
+   */
    @Test
    public void insertUser( ) throws SQLException {
 	   String test = "TestUser";
@@ -101,6 +157,14 @@ public class TestUnit {
 	   dataConnection.closeConnection(dataConnection.getConnection());
    }
    
+   /**
+   * 
+   * dropUser
+   * Method for testing dropUser
+   * @author  Guillermo
+   * @since   2020-04-30
+   *  
+   */
    @Test
    public void dropUser ( ) throws SQLException {
 	   String test = "TestUser";
