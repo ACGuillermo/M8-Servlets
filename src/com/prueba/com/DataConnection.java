@@ -26,6 +26,7 @@ public class DataConnection {
 	private PreparedStatement insertCompra = null;
 	private PreparedStatement dropUser = null;
 	private PreparedStatement insertUser = null;
+	private PreparedStatement changePass = null;
 	
 	/**
 	* 
@@ -255,5 +256,15 @@ public class DataConnection {
     	
     	insertCompra.executeUpdate();
         
+	}
+	
+	public void changePass(String nick, String pass) throws SQLException {
+		
+		changePass = con.prepareStatement("UPDATE users SET pass = ? WHERE nick = ?");
+		
+		changePass.setString(1, pass);
+		changePass.setString(2, pass);
+		
+		changePass.executeUpdate();
 	}
 }
