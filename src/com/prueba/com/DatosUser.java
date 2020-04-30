@@ -43,11 +43,6 @@ public class DatosUser extends HttpServlet {
 		DataConnection dataConnection = new DataConnection();
 		Connection con = dataConnection.getConnection();
 		
-		Statement stmt = null; 
-		ResultSet rs = null;
-		ResultSet rs2 = null;
-		PreparedStatement selectUser = null;
-		PreparedStatement insertCompra = null;
 		
 		try {
 			
@@ -78,11 +73,6 @@ public class DatosUser extends HttpServlet {
 		}catch(Exception e){
 			LOGGER.log(Level.SEVERE, e.toString());
 		}finally {
-			dataConnection.closeResultSet(rs);
-			dataConnection.closeResultSet(rs2);
-			dataConnection.closeStatement(stmt);
-			dataConnection.closeQuery(selectUser);
-			dataConnection.closeQuery(insertCompra);
 			dataConnection.closeConnection(con);
 		 }
 			

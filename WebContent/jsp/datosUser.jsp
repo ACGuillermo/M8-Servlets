@@ -42,6 +42,12 @@
    		<h2 class="mt-5 text-center">Username: ${requestScope.name}</h2>
    		<h2 class="mt-5 text-center">Password: ${requestScope.userPassword}</h2>
    		<h2 class="mt-5 text-center">Email: ${requestScope.userEmail}</h2>
+   		
+   		<div class="container d-flex justify-content-center">
+   			<div class="list-group w-50">
+				  <a href="../ContraseñaServlet" class="list-group-item list-group-item-action list-group-item-danger">Cambiar contraseña</a>
+			</div>
+   		</div>
    </div>
 	
 	 <!--FOOTER-->

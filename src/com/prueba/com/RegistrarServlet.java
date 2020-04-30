@@ -56,11 +56,6 @@ public class RegistrarServlet extends HttpServlet {
 			
 			DataConnection dataConnection = new DataConnection();
 			Connection con = dataConnection.getConnection();
-			Statement stmt = null; 
-			ResultSet rs = null;
-			ResultSet rs2 = null;
-			PreparedStatement selectUser = null;
-			PreparedStatement insertUser = null;
 			
 			try {
 		        //COMPROBAR USER EN BBDD
@@ -88,11 +83,6 @@ public class RegistrarServlet extends HttpServlet {
 			}catch(Exception e){
 				LOGGER.log(Level.SEVERE, e.toString());
 			}finally { 
-				dataConnection.closeResultSet(rs);
-				dataConnection.closeResultSet(rs2);
-				dataConnection.closeStatement(stmt);
-				dataConnection.closeQuery(selectUser);
-				dataConnection.closeQuery(insertUser);
 				dataConnection.closeConnection(con);
 			}
 			
