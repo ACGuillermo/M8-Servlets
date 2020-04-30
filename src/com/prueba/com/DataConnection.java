@@ -24,6 +24,8 @@ public class DataConnection {
 	private ResultSet rs = null;
 	private PreparedStatement selectUser = null;
 	private PreparedStatement insertCompra = null;
+	private PreparedStatement dropUser = null;
+	private PreparedStatement insertUser = null;
 	
 	/**
 	* 
@@ -182,7 +184,6 @@ public class DataConnection {
 	*  
 	*/
 	public void insertUser(String nombre, String password, String email) throws SQLException {
-		PreparedStatement insertUser = null;
 		insertUser = con.prepareStatement("insert into users (nick, pass, email) values(?, ?, ?)");
         
         
@@ -205,7 +206,6 @@ public class DataConnection {
 	*  
 	*/
 	public void dropUser (String nombre) throws SQLException {
-		PreparedStatement dropUser = null;
 		dropUser = con.prepareStatement("DELETE FROM users WHERE nick = ?");
 		
 		dropUser.setString(1, nombre);
