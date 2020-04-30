@@ -20,6 +20,7 @@
 
         <!-- DERECHA -->
             <div class="navbar-nav">
+            	<a class="nav-item nav-link text-primary" href="perfil.jsp">Perfil</a>
             	<a class="nav-item nav-link text-primary" href="cursos.jsp">Cursos</a>
                 <a class="nav-item nav-link text-primary" href="login.jsp">Login</a>
                 <a class="btn btn-outline-info ml-1 mr-1" href="registrar.jsp">REGISTRAR</a>
@@ -29,6 +30,7 @@
     </nav>
     <!-- NAVBAR -->
     	<h1>Bienvenido ${sessionScope.nick} </h1>
+    	<a href="perfil.jsp" class="btn btn-info">Perfil</a>
     	<a href="../LogoutServlet" class="btn btn-info">Perfil</a>
     
 	

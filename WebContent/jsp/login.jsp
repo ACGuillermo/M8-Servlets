@@ -33,7 +33,6 @@ if(session.getAttribute("nick") != null){
         <!-- DERECHA -->
             <div class="navbar-nav">
             	<a class="nav-item nav-link text-primary" href="cursos.jsp">Cursos</a>
-                <a class="nav-item nav-link text-primary" href="registrar.jsp">Registrar</a>
             </div>
         </div>
         <!-- DERECHA -->

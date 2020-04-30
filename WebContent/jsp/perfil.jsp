@@ -1,11 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%
+
+	if(session.getAttribute("nick") == null){
+		String destination = "login.jsp";
+		response.sendRedirect(destination);
+	}
+
+
+%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<title>Home</title>
+<title>Perfil</title>
 </head>
 <body>
 	 <!-- NAVBAR -->
@@ -21,20 +31,7 @@
         <!-- DERECHA -->
             <div class="navbar-nav">
             	<a class="nav-item nav-link text-primary" href="cursos.jsp">Cursos</a>
-            	<%
-					if(session.getAttribute("nick") != null){
-						String destination = "loginExito.jsp";
-						response.sendRedirect(destination);
-				
-				%>
-                <a class="nav-item nav-link text-primary" href="perfil.jsp">Perfil</a>
-                <%
-                	}else{ 
-                %>
                 <a class="nav-item nav-link text-primary" href="login.jsp">Login</a>
-                <%
-                	} 
-                %>
                 <a class="btn btn-outline-info ml-1 mr-1" href="registrar.jsp">REGISTRAR</a>
             </div>
         </div>
@@ -42,16 +39,9 @@
     </nav>
     <!-- NAVBAR -->
     
-    <div class="container mt-5">
-	  <div class="jumbotron">
-		  <h1 class="display-4">Bienvenido cursero!</h1>
-		  <p class="lead">La mejor pagina de cursos de habla hispana.</p>
-		  <hr class="my-4">
-		  <p>Podras encontrar todos los cursos que necesites y mas!</p>
-		  <a class="btn btn-primary btn-lg" href="cursos.jsp" role="button">Echa un vistazo</a>
-	  </div>
-	</div>
-	
+   <div class="container">
+   	<a href="../LogoutServlet" class="btn btn-info">Salir</a>
+   </div>
 	
 	 <!--FOOTER-->
    <div class="bg-dark mt-4">
