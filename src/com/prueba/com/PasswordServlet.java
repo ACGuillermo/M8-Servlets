@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ContraseñaServlet
  */
-@WebServlet("/ContraseñaServlet")
-public class ContraseñaServlet extends HttpServlet {
+@WebServlet("/PasswordServlet")
+public class PasswordServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ContraseñaServlet() {
+    public PasswordServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
