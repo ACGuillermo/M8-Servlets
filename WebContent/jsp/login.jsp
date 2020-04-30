@@ -53,7 +53,7 @@ if(session.getAttribute("nick") != null){
 		  </div>
 		  <input type="password" class="form-control" placeholder="********" aria-label="Username" aria-describedby="basic-addon1" name="password">
 		</div>
-		<input type="submit" value="Login">
+		<button id="inputComprar" type="submit" value="login" class="btn btn-info mb-2">Entrar</button>
     </form>
     
 </body>

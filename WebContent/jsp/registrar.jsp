@@ -50,6 +50,7 @@
 		  <input type="password" class="form-control" placeholder="********" aria-label="Username" aria-describedby="basic-addon1" name="password">
 		</div>
 		<input type="submit" value="Registrar">
+		<button  type="submit" value="Registrar" class="btn btn-info mb-2">Registrar</button>
     </form>
     
 </body>
