@@ -70,7 +70,7 @@ public class LoginServlet extends HttpServlet {
 	        
 	        if(usuarioExiste && sesion.getAttribute("nick") == null) {
 	        	sesion.setAttribute("nick", nick);
-	        	String destination = "jsp/loginExito.jsp";
+	        	String destination = "jsp/perfil.jsp";
 	        	response.sendRedirect(destination);
 				
 				con.close();

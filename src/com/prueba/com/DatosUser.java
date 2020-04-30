@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
  * @author  Guillermo
  * @since   2020-04-30
  */
-@WebServlet("/CursosUser")
+@WebServlet("/DatosUser")
 public class DatosUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = Logger.getAnonymousLogger();
