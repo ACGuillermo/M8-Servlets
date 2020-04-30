@@ -101,7 +101,7 @@
 				</div> 
             </div>
             <div class="row my-4">
-                <input type="submit" class="btn btn-primary mb-2"></input>
+                <button id="inputComprar" type="submit" class="btn btn-primary mb-2">Comprar</button>
             </div>
         </form>
     </div>
@@ -117,7 +117,7 @@
                     <textarea class="form-control" rows="5" id="comentario" name="comentario" maxlength="200" required></textarea>
                 </div>
             </div>
-            <input type="submit" class="btn btn-primary mb-2"></input>
+            <button id="inputComprar" type="submit" class="btn btn-primary mb-2">Enviar comentario.</button>
         </form>
     </div>
 	

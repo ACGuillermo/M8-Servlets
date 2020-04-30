@@ -31,7 +31,6 @@
         <!-- DERECHA -->
             <div class="navbar-nav">
             	<a class="nav-item nav-link text-primary" href="cursos.jsp">Cursos</a>
-                <a class="nav-item nav-link text-primary" href="login.jsp">Login</a>
                 <a class="btn btn-outline-info ml-1 mr-1" href="registrar.jsp">REGISTRAR</a>
             </div>
         </div>
@@ -40,7 +39,15 @@
     <!-- NAVBAR -->
     
    <div class="container">
-   	<a href="../LogoutServlet" class="btn btn-info">Salir</a>
+   		<h2 class="mt-5">Bienvenido ${sessionScope.nick}, ¿Que tal todo?</h2>
+   		<h3 class="text-center">Menu</h3>
+   		<div class="container d-flex justify-content-center">
+   			<div class="list-group w-50">
+				  <a href="cursosUser.jsp" class="list-group-item list-group-item-action list-group-item-primary">Mis cursos adquiridos</a>
+				  <a href="datosUser.jsp" class="list-group-item list-group-item-action list-group-item-secondary">Mis datos</a>
+				  <a href="../LogoutServlet" class="list-group-item list-group-item-action list-group-item-danger">Salir</a>
+			</div>
+   		</div>
    </div>
 	
 	 <!--FOOTER-->
