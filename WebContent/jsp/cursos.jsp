@@ -11,7 +11,7 @@
 	 <!-- NAVBAR -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <!-- IZQUIERDA -->
-        <a class="navbar-brand text-primary" href="index.jsp">Noticias Guillermo</a>
+        <a class="navbar-brand text-primary" href="index.jsp">Cursos Guillermo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -68,7 +68,7 @@
                 	<div class="card" style="width: 18rem;">
 					  	<div class="card-body">
 						    <h5 class="card-title">Curso javaScript</h5>
-						    <p class="card-text">¿Listo para ser un master de javaScript?</p>
+						    <p class="card-text">ï¿½Listo para ser un master de javaScript?</p>
 						    <input class="form-check-input" type="checkbox" name="cursos" id="curso3" value="javaScript">
 					  	</div>
 				  	</div>
@@ -141,7 +141,7 @@
                 <h5 class="text-info">Sobre Domum</h5>
                 <a class="text-white">Mapa web</a><br>
                 <a class="text-white">Sala de prensa</a><br>
-                <a class="text-white">Índice de precios</a><br>
+                <a class="text-white">ï¿½ndice de precios</a><br>
                 <a class="text-white">Gestionar Publicidad</a><br>
                 <a class="text-white">Trabaja con nosotros</a><br>
             </div>
@@ -149,16 +149,16 @@
                 <h5 class="text-info">Para particulares</h5>
                 <a class="text-white">Nuestras Apps</a><br>
                 <a class="text-white">Blog</a><br>
-                <a class="text-white">Catálogo</a><br>
+                <a class="text-white">Catï¿½logo</a><br>
                 <a class="text-white">Ayuda</a><br>
             </div>
             <div class="col-3 my-4 d-none d-lg-block">
                 <h5 class="text-info">Para profesionales</h5>
-                <a class="text-white">Anúnciate</a><br>
+                <a class="text-white">Anï¿½nciate</a><br>
                 <a class="text-white">Tu cuenta</a><br>
             </div>
             <div class="col-3 my-4 d-none d-lg-block">
-                <h5 class="text-info">Descárgate nuestra App</h5>
+                <h5 class="text-info">Descï¿½rgate nuestra App</h5>
                 <img alt="Android Fotocasa App" src="https://frtassets.fotocasa.es/statics/footer_download_android_app.png"><br>
                 <img class="mt-2"alt="iOS Fotocasa App" src="https://frtassets.fotocasa.es/statics/footer_download_ios_app.png">
             </div>
@@ -166,11 +166,11 @@
         <div class="row ml-4 d-lg-none">
             <div class="col-6 my-4">
                 <h5 class="text-info">Para profesionales</h5>
-                <a class="text-white">Anúnciate</a><br>
+                <a class="text-white">Anï¿½nciate</a><br>
                 <a class="text-white">Tu cuenta</a><br>
             </div>
             <div class="col-6 my-4">
-                <h5 class="text-info">Descárgate nuestra App</h5>
+                <h5 class="text-info">Descï¿½rgate nuestra App</h5>
                 <img alt="Android Fotocasa App" src="https://frtassets.fotocasa.es/statics/footer_download_android_app.png"><br>
                 <img class="mt-2"alt="iOS Fotocasa App" src="https://frtassets.fotocasa.es/statics/footer_download_ios_app.png">
             </div>
