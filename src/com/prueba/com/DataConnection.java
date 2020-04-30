@@ -29,7 +29,9 @@ public class DataConnection {
 	private PreparedStatement dropUser = null;
 	private PreparedStatement insertUser = null;
 	private PreparedStatement changePass = null;
-	
+	private Config config = new Config();
+	private String db = config.getDb();
+			
 	/**
 	* 
 	* DataConnection
@@ -42,8 +44,7 @@ public class DataConnection {
 		try {
 			new org.sqlite.JDBC();
 	        Class.forName("org.sqlite.JDBC");
-	        String url = "jdbc:sqlite:C:\\Users\\Guillermo\\Desktop\\WorkStation\\M8-Servlets\\WebContent\\WEB-INF\\lib\\test.db";
-	        con = DriverManager.getConnection(url);
+	        con = DriverManager.getConnection(db);
 		}
 		catch(Exception e) {
 			LOGGER.log(Level.SEVERE, e.toString());
