@@ -258,6 +258,16 @@ public class DataConnection {
         
 	}
 	
+	/**
+	* 
+	* changePass
+	* Method for inserting compra in database.
+	* @param nick nick of user changing password.
+	* @param pass new password.
+	* @author  Guillermo
+	* @since   2020-04-30
+	* 
+	*/
 	public void changePass(String nick, String pass) throws SQLException {
 		
 		changePass = con.prepareStatement("UPDATE users SET pass = ? WHERE nick = ?");
