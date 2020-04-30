@@ -1,5 +1,6 @@
 package com.prueba.com;
 
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -269,11 +271,13 @@ public class DataConnection {
 	* 
 	*/
 	public void changePass(String nick, String pass) throws SQLException {
+		System.out.print(nick);
+		System.out.print(pass);
 		
 		changePass = con.prepareStatement("UPDATE users SET pass = ? WHERE nick = ?");
 		
 		changePass.setString(1, pass);
-		changePass.setString(2, pass);
+		changePass.setString(2, nick);
 		
 		changePass.executeUpdate();
 	}

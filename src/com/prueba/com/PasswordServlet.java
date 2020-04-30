@@ -37,16 +37,28 @@ public class PasswordServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sesion = request.getSession();
+		String password = request.getParameter("password");
+		System.out.print(password);
 		
 		DataConnection dataConnection = new DataConnection();
 		Connection con = dataConnection.getConnection();
+		
+		Rgx rgx = new Rgx();
+		
+		if(!rgx.passwordRegex(password)) {
+			String destination = "/jsp/error.jsp";
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
+			requestDispatcher.forward(request, response);
+		}
 		
 		
 		try {
 			
         	String nick = (String) sesion.getAttribute("nick");
+        	System.out.print(nick);
 	        if(dataConnection.checkUser(nick)) {
-	        	dataConnection.changePass(nick, "passwWOWORD");
+	        	System.out.print("DENTRO");
+	        	dataConnection.changePass(nick, password);
 	            
 	            String destination = "/jsp/passCambiada.jsp";
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
