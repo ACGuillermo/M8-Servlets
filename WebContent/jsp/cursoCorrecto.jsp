@@ -21,7 +21,7 @@
         <!-- DERECHA -->
             <div class="navbar-nav">
             	<a class="nav-item nav-link text-primary" href="jsp/cursos.jsp">Cursos</a>
-                <a class="nav-item nav-link text-primary" href="jsp/login.jsp">Login</a>
+                <a class="nav-item nav-link text-primary" href="jsp/perfil.jsp">Perfil</a>
                 <a class="btn btn-outline-info ml-1 mr-1" href="jsp/registrar.jsp">REGISTRAR</a>
             </div>
         </div>

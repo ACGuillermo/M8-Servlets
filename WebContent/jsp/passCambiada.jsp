@@ -1,21 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
-<%
-
-	if(session.getAttribute("nick") == null){
-		String destination = "login.jsp";
-		response.sendRedirect(destination);
-	}
-
-
-%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<title>Datos usuario</title>
+<title>Contraseña cambiada</title>
 </head>
 <body>
 	 <!-- NAVBAR -->
@@ -30,25 +20,37 @@
 
         <!-- DERECHA -->
             <div class="navbar-nav">
-            	<a class="nav-item nav-link text-primary" href="jsp/perfil.jsp">Perfil</a>
             	<a class="nav-item nav-link text-primary" href="jsp/cursos.jsp">Cursos</a>
+            	<%
+					if(session.getAttribute("nick") != null){
+				
+				%>
+                <a class="nav-item nav-link text-primary" href="jsp/perfil.jsp">Perfil</a>
+                <%
+                	}else{ 
+                %>
+                <a class="nav-item nav-link text-primary" href="jsp/login.jsp">Login</a>
+                <%
+                	} 
+                %>
+                <a class="btn btn-outline-info ml-1 mr-1" href="jsp/registrar.jsp">REGISTRAR</a>
             </div>
         </div>
         <!-- DERECHA -->
     </nav>
     <!-- NAVBAR -->
     
-   <div class="container">
-   		<h2 class="mt-5 text-center">Username: ${requestScope.name}</h2>
-   		<h2 class="mt-5 text-center">Password: ${requestScope.userPassword}</h2>
-   		<h2 class="mt-5 text-center">Email: ${requestScope.userEmail}</h2>
-   		
-   		<div class="container d-flex justify-content-center">
-   			<div class="list-group w-50">
-				  <a href="PasswordServlet" class="list-group-item list-group-item-action list-group-item-danger">Cambiar contraseña</a>
-			</div>
-   		</div>
-   </div>
+    <div class="container d-flex juntify-content-center">
+    
+    	<div class="card" style="width: 18rem;">
+		  <div class="card-body">
+		    <h5 class="card-title">Contraseña cambiada correctamente</h5>
+		    <p class="card-text">Procura recordar tu contraseña y no dársela a nadie por seguridad</p>
+		    <a href="jsp/perfil.jsp" class="btn btn-primary">Volver</a>
+		  </div>
+		</div>
+    
+    </div>
 	
 	 <!--FOOTER-->
    <div class="bg-dark mt-4">

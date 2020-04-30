@@ -48,11 +48,8 @@ public class PasswordServlet extends HttpServlet {
 	        if(dataConnection.checkUser(nick)) {
 	        	dataConnection.changePass(nick, "passwWOWORD");
 	            
-	            String destination = "/jsp/index.jsp";
+	            String destination = "/jsp/passCambiada.jsp";
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
-				//request.setAttribute("name", userName);
-				//request.setAttribute("userPassword", userPassword);
-				//request.setAttribute("userEmail", userEmail);
 				requestDispatcher.forward(request, response);
 				
 				
