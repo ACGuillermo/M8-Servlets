@@ -24,6 +24,7 @@ public class DataConnection {
 	private ResultSet rs = null;
 	private PreparedStatement selectUser = null;
 	private PreparedStatement insertCompra = null;
+	private PreparedStatement insertComentario = null;
 	private PreparedStatement dropUser = null;
 	private PreparedStatement insertUser = null;
 	
@@ -70,7 +71,7 @@ public class DataConnection {
 	* @since   2020-04-30
 	*  
 	*/
-	public void closeConnection(Connection conn) {
+	static public void closeConnection(Connection conn) {
 		try { 
 	        if (conn != null) 
 	            conn.close(); 
@@ -88,7 +89,7 @@ public class DataConnection {
 	* @since   2020-04-30
 	*  
 	*/
-	public void closeStatement(Statement stmt) {
+	static public void closeStatement(Statement stmt) {
 		try { 
 	        if (stmt != null) 
 	            stmt.close(); 
@@ -106,7 +107,7 @@ public class DataConnection {
 	* @since   2020-04-30
 	*  
 	*/
-	public void closeResultSet (ResultSet rs) {
+	static public void closeResultSet (ResultSet rs) {
 		try { 
 	        if (rs != null) 
 	            rs.close(); 
@@ -124,7 +125,7 @@ public class DataConnection {
 	* @since   2020-04-30
 	*  
 	*/
-	public void closeQuery (PreparedStatement query) {
+	static public void closeQuery (PreparedStatement query) {
 		try { 
 	        if (query != null) 
 	            query.close(); 
@@ -162,12 +163,13 @@ public class DataConnection {
 	* @since   2020-04-30
 	*  
 	*/
-	public boolean checkUser (String user) throws SQLException {
+	boolean checkUser (String user) throws SQLException {
 		selectUser = con.prepareStatement("select * from users where nick = ?");
         
         selectUser.setString(1, user);
         selectUser.execute();
         rs = selectUser.getResultSet();
+        
         
         return rs.next();
 	}
@@ -194,6 +196,8 @@ public class DataConnection {
         insertUser.executeUpdate();
         LOGGER.log(Level.FINE, "User inserted");
         
+        DataConnection.closeQuery(insertUser);
+        
 	}
 	
 	/**
@@ -211,6 +215,8 @@ public class DataConnection {
 		dropUser.setString(1, nombre);
 		
 		dropUser.executeUpdate();
+		
+		DataConnection.closeQuery(dropUser);
 	}
 	
 	/**
@@ -224,12 +230,14 @@ public class DataConnection {
 	*  
 	*/
 	public void insertComentario(String nick, String comentario) throws SQLException {
-		insertCompra = con.prepareStatement("INSERT INTO comentarios (nick, comentario) values (?,?)");
+		insertComentario = con.prepareStatement("INSERT INTO comentarios (nick, comentario) values (?,?)");
     	
-    	insertCompra.setString(1, nick);
-    	insertCompra.setString(2, comentario);
+		insertComentario.setString(1, nick);
+		insertComentario.setString(2, comentario);
     	
-    	insertCompra.executeUpdate();
+		insertComentario.executeUpdate();
+    	
+    	DataConnection.closeQuery(insertComentario);
         
 	}
 	
@@ -254,6 +262,8 @@ public class DataConnection {
     	insertCompra.setString(4, grado);
     	
     	insertCompra.executeUpdate();
+    	
+    	DataConnection.closeQuery(insertCompra);
         
 	}
 }
