@@ -63,7 +63,7 @@ public class DatosUser extends HttpServlet {
 				
 	        }else {
         	
-        	String destination = "/jsp/login.jsp";
+        	String destination = "/jsp/index.jsp";
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
 			requestDispatcher.forward(request, response);
 	        }
