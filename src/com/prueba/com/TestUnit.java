@@ -53,9 +53,33 @@ public class TestUnit {
 	   assertFalse(rgx.nombreRegex("12345678910"));
    }
    
-   @Test public void passwordRegex( ) {
+   @Test
+   public void passwordRegex( ) {
 	   Rgx rgx = new Rgx();
-	   
+	   assertTrue(rgx.passwordRegex("12345678"));
+	   assertTrue(rgx.passwordRegex("abcdefgh"));
+	   assertTrue(rgx.passwordRegex("zº854'=¡"));
+	   assertTrue(rgx.passwordRegex("_'^AZlsj22"));
+	   assertFalse(rgx.passwordRegex("1234567"));
+	   assertFalse(rgx.passwordRegex("abcdefg"));
+   }
+   
+   @Test
+   public void checkUser( ) throws SQLException {
+	   DataConnection dataConnection = new DataConnection();
+	   assertFalse(dataConnection.checkUser("TestFalso"));
+	   assertFalse(dataConnection.checkUser("12348azaq"));
+	   assertTrue(dataConnection.checkUser("Guille"));
+	   assertTrue(dataConnection.checkUser("guille"));
+	   assertTrue(dataConnection.checkUser("hola"));
+   }
+   
+   @Test public void insertUser( ) throws SQLException {
+	   DataConnection dataConnection = new DataConnection();
+	   assertFalse(dataConnection.checkUser("TestUser"));
+	   dataConnection.insertUser("TestUser", "passTest", "eTest");
+	   assertTrue(dataConnection.checkUser("TestUser"));
+	   dataConnection.dropUser("TestUser");
    }
 }
 

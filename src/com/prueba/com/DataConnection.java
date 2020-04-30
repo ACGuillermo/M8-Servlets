@@ -13,6 +13,11 @@ import java.util.logging.Logger;
 public class DataConnection {
 	private static final Logger LOGGER = Logger.getAnonymousLogger();
 	private Connection con = null;
+	private ResultSet rs = null;
+	private PreparedStatement selectUser = null;
+	private PreparedStatement insertCompra = null;
+	private PreparedStatement insertUser = null;
+	private PreparedStatement dropUser = null;
 	
 	public DataConnection() {
 		try {
@@ -65,5 +70,62 @@ public class DataConnection {
 	    } catch (SQLException sqle) {
 	    	LOGGER.log(Level.SEVERE, Arrays.toString(sqle.getStackTrace()));
 	    }
+	}
+	
+	public boolean checkUser (String user) throws SQLException {
+		selectUser = con.prepareStatement("select * from users where nick = ?");
+        
+        selectUser.setString(1, user);
+        selectUser.execute();
+        rs = selectUser.getResultSet();
+        
+        return rs.next();
+	}
+	
+	public void insertUser(String nombre, String password, String email) throws SQLException {
+		insertUser = con.prepareStatement("insert into users (nick, pass, email) values(?, ?, ?)");
+        
+        
+        insertUser.setString(1, nombre);
+        insertUser.setString(2, password);
+        insertUser.setString(3, email);
+        
+        insertUser.executeUpdate();
+        LOGGER.log(Level.FINE, "User inserted");
+        
+        con.close();
+	}
+	
+	public void dropUser (String nombre) throws SQLException {
+		dropUser = con.prepareStatement("DELETE FROM users WHERE nick = ?");
+		
+		dropUser.setString(1, nombre);
+		
+		dropUser.executeUpdate();
+		con.close();
+	}
+	
+	public void insertComentario(String nick, String comentario) throws SQLException {
+		insertCompra = con.prepareStatement("INSERT INTO comentarios (nick, comentario) values (?,?)");
+    	
+    	insertCompra.setString(1, nick);
+    	insertCompra.setString(2, comentario);
+    	
+    	insertCompra.executeUpdate();
+        
+        con.close();
+	}
+	
+	public void insertCompra (String nick, String cursosString, String pago, String grado) throws SQLException {
+		insertCompra = con.prepareStatement("INSERT INTO compra (nick, productos, pago, grado) values (?,?,?,?)");
+    	
+    	insertCompra.setString(1, nick);
+    	insertCompra.setString(2, cursosString);
+    	insertCompra.setString(3, pago);
+    	insertCompra.setString(4, grado);
+    	
+    	insertCompra.executeUpdate();
+        
+        con.close();
 	}
 }

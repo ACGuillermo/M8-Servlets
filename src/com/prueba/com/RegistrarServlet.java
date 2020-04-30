@@ -61,34 +61,14 @@ public class RegistrarServlet extends HttpServlet {
 			
 			try {
 		        //COMPROBAR USER EN BBDD
-		        selectUser = con.prepareStatement("select * from users where nick = ?");
-		        
-		        selectUser.setString(1, nombre);
-		        selectUser.execute();
-		        rs2 = selectUser.getResultSet();
-		        Boolean usuarioExiste = rs2.next();
-		        if(usuarioExiste) {
+		        if(dataConnection.checkUser(nombre)) {
 		        	con.close();
 		        	LOGGER.log(Level.FINE, "Usuario existe");
 		        	String destination = "/jsp/error.jsp";
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
 					requestDispatcher.forward(request, response);
 		        }else {
-		        	insertUser = con.prepareStatement("insert into users (nick, pass, email) values(?, ?, ?)");
-			        
-			        
-			        insertUser.setString(1, nombre);
-			        insertUser.setString(2, password);
-			        insertUser.setString(3, email);
-			        
-			        insertUser.executeUpdate();
-			        LOGGER.log(Level.FINE, "User inserted");
-			        String sql = "SELECT * FROM users";
-			        stmt  = con.createStatement();
-		            rs    = stmt.executeQuery(sql);
-		            
-		            con.close();
-		            
+		        	dataConnection.insertUser(nombre, password, email);
 					String destination = "/jsp/correcto.jsp";
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
 					request.setAttribute("name", nombre);

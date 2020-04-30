@@ -52,24 +52,8 @@ public class ComentarioServlet extends HttpServlet {
 			
 	        if(sesion.getAttribute("nick") != null) {
 	        	String nick = (String) sesion.getAttribute("nick");
-	        	//COMPROBAR USER EN BBDD
-		        selectUser = con.prepareStatement("select * from users where nick = ?");
-		        
-		        selectUser.setString(1, nick);
-		        selectUser.execute();
-		        rs = selectUser.getResultSet();
-		        
-		        Boolean usuarioExiste = rs.next();
-		        
-		        if(usuarioExiste) {
-		        	insertCompra = con.prepareStatement("INSERT INTO comentarios (nick, comentario) values (?,?)");
-		        	
-		        	insertCompra.setString(1, nick);
-		        	insertCompra.setString(2, comentario);
-		        	
-		        	insertCompra.executeUpdate();
-		            
-		            con.close();
+		        if(dataConnection.checkUser(nick)) {
+		        	dataConnection.insertComentario(nick, comentario);
 		            
 		            String destination = "/jsp/comentarioCorrecto.jsp";
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);

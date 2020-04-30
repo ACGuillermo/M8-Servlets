@@ -66,31 +66,8 @@ public class CursosServlet extends HttpServlet {
 	        
 	        if(sesion.getAttribute("nick") != null) {
 	        	String nick = (String) sesion.getAttribute("nick");
-	        	//COMPROBAR USER EN BBDD
-		        selectUser = con.prepareStatement("select * from users where nick = ?");
-		        
-		        selectUser.setString(1, nick);
-		        selectUser.execute();
-		        rs = selectUser.getResultSet();
-		        
-		        Boolean usuarioExiste = rs.next();
-		        
-		        if(usuarioExiste) {
-		        	insertCompra = con.prepareStatement("INSERT INTO compra (nick, productos, pago, grado) values (?,?,?,?)");
-		        	
-		        	insertCompra.setString(1, nick);
-		        	insertCompra.setString(2, cursosString);
-		        	insertCompra.setString(3, pago);
-		        	insertCompra.setString(4, grado);
-		        	
-		        	insertCompra.executeUpdate();
-		        	
-		        	
-		        	String sql = "SELECT * FROM compra";
-			        stmt  = con.createStatement();
-		            rs2    = stmt.executeQuery(sql);
-		            
-		            con.close();
+		        if(dataConnection.checkUser(nick)) {
+		        	dataConnection.insertCompra(nick, cursosString, pago, grado);
 		            
 		            String destination = "/jsp/cursoCorrecto.jsp";
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
