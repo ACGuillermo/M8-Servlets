@@ -21,7 +21,7 @@
 	 <!-- NAVBAR -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <!-- IZQUIERDA -->
-        <a class="navbar-brand text-primary" href="#">Cursos Guillermo</a>
+        <a class="navbar-brand text-primary" href="jsp/index.jsp">Cursos Guillermo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,8 +30,8 @@
 
         <!-- DERECHA -->
             <div class="navbar-nav">
-            	<a class="nav-item nav-link text-primary" href="cursos.jsp">Cursos</a>
-                <a class="btn btn-outline-info ml-1 mr-1" href="registrar.jsp">REGISTRAR</a>
+            	<a class="nav-item nav-link text-primary" href="jsp/perfil.jsp">Perfil</a>
+            	<a class="nav-item nav-link text-primary" href="jsp/cursos.jsp">Cursos</a>
             </div>
         </div>
         <!-- DERECHA -->
@@ -39,15 +39,9 @@
     <!-- NAVBAR -->
     
    <div class="container">
-   		<h2 class="mt-5">Bienvenido ${sessionScope.nick}, ¿Que tal todo?</h2>
-   		<h3 class="text-center">Menu</h3>
-   		<div class="container d-flex justify-content-center">
-   			<div class="list-group w-50">
-				  <a href="../CursosUser" class="list-group-item list-group-item-action list-group-item-primary">Mis datos</a>
-				  <a href="datosUser.jsp" class="list-group-item list-group-item-action list-group-item-secondary">Mis datos</a>
-				  <a href="../LogoutServlet" class="list-group-item list-group-item-action list-group-item-danger">Salir</a>
-			</div>
-   		</div>
+   		<h2 class="mt-5 text-center">Username: ${requestScope.name}</h2>
+   		<h2 class="mt-5 text-center">Password: ${requestScope.userPassword}</h2>
+   		<h2 class="mt-5 text-center">Email: ${requestScope.userEmail}</h2>
    </div>
 	
 	 <!--FOOTER-->

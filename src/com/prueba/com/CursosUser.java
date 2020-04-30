@@ -57,9 +57,6 @@ public class CursosUser extends HttpServlet {
 	        	String userPassword = userSet.getString("pass");
 	        	String userEmail = userSet.getString("email");
 	        	
-	        	
-	        
-	        	System.out.print(userPassword);
 	            
 	            String destination = "/jsp/cursosUser.jsp";
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
@@ -67,6 +64,7 @@ public class CursosUser extends HttpServlet {
 				request.setAttribute("userPassword", userPassword);
 				request.setAttribute("userEmail", userEmail);
 				requestDispatcher.forward(request, response);
+				
 				
 	        }else {
         	
