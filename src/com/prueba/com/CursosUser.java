@@ -51,17 +51,26 @@ public class CursosUser extends HttpServlet {
 			
         	String nick = (String) sesion.getAttribute("nick");
 	        if(dataConnection.checkUser(nick)) {
+	        	ResultSet userSet = dataConnection.getUser(nick);
 	        	
+	        	String userName = userSet.getString("nick");
+	        	String userPassword = userSet.getString("pass");
+	        	String userEmail = userSet.getString("email");
+	        	
+	        	
+	        
+	        	System.out.print(userPassword);
 	            
-	            String destination = "/jsp/comentarioCorrecto.jsp";
+	            String destination = "/jsp/cursosUser.jsp";
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
-				request.setAttribute("name", nick);
-				// request.setAttribute(comm, comentario);
+				request.setAttribute("name", userName);
+				request.setAttribute("userPassword", userPassword);
+				request.setAttribute("userEmail", userEmail);
 				requestDispatcher.forward(request, response);
 				
 	        }else {
         	
-        	String destination = "/jsp/usuarioNoExiste.jsp";
+        	String destination = "/jsp/login.jsp";
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
 			requestDispatcher.forward(request, response);
 	        }

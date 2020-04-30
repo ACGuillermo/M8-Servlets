@@ -72,6 +72,15 @@ public class DataConnection {
 	    }
 	}
 	
+	public ResultSet getUser(String user) throws SQLException {
+		selectUser = con.prepareStatement("select * from users where nick = ?");
+        
+        selectUser.setString(1, user);
+        selectUser.execute();
+        rs = selectUser.getResultSet();
+		return rs;
+	}
+	
 	public boolean checkUser (String user) throws SQLException {
 		selectUser = con.prepareStatement("select * from users where nick = ?");
         

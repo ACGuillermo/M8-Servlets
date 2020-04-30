@@ -43,7 +43,7 @@
    		<h3 class="text-center">Menu</h3>
    		<div class="container d-flex justify-content-center">
    			<div class="list-group w-50">
-				  <a href="cursosUser.jsp" class="list-group-item list-group-item-action list-group-item-primary">Mis cursos adquiridos</a>
+				  <a href="../CursosUser" class="list-group-item list-group-item-action list-group-item-primary">Mis cursos adquiridos</a>
 				  <a href="datosUser.jsp" class="list-group-item list-group-item-action list-group-item-secondary">Mis datos</a>
 				  <a href="../LogoutServlet" class="list-group-item list-group-item-action list-group-item-danger">Salir</a>
 			</div>
