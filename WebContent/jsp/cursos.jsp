@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<title>Insert title here</title>
+<title>Cursos</title>
 </head>
 <body>
 	 <!-- NAVBAR -->
@@ -35,21 +35,41 @@
                 <h2>Cursos</h2>
             </div>
             <div class="row my-4 justify-content-between">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="cursos" id="curso1" value="curso1" required>
-                    <label class="form-check-label" for="curso3">1</label>
+                <div class="form-check form-check-inline mt-2">
+                    <div class="card" style="width: 18rem;">
+					  	<div class="card-body">
+						    <h5 class="card-title">Curso JAVA</h5>
+						    <p class="card-text">Aprenderas todo lo que necesitas sobre JAVA.</p>
+						    <input class="form-check-input" type="checkbox" name="cursos" id="curso1" value="java" required>
+					  	</div>
+				  	</div>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="cursos" id="curso2" value="curso2">
-                    <label class="form-check-label" for="curso2">2</label>
+                <div class="form-check form-check-inline mt-2">
+                    <div class="card" style="width: 18rem;">
+					  	<div class="card-body">
+						    <h5 class="card-title">Curso PHP</h5>
+						    <p class="card-text">Curso inicial para aprender a manejarse con PHP.</p>
+						    <input class="form-check-input" type="checkbox" name="cursos" id="curso2" value="php">
+					  	</div>
+				  	</div>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="cursos" id="curso3" value="curso3">
-                    <label class="form-check-label" for="curso3">3</label>
+                <div class="form-check form-check-inline mt-2">
+                	<div class="card" style="width: 18rem;">
+					  	<div class="card-body">
+						    <h5 class="card-title">Curso javaScript</h5>
+						    <p class="card-text">¿Listo para ser un master de javaScript?</p>
+						    <input class="form-check-input" type="checkbox" name="cursos" id="curso3" value="javaScript">
+					  	</div>
+				  	</div>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="cursos" id="curso4" value="curso4">
-                    <label class="form-check-label" for="curso3">4</label>
+                <div class="form-check form-check-inline mt-2">
+                	<div class="card" style="width: 18rem;">
+					  	<div class="card-body">
+						    <h5 class="card-title">Curso haskell</h5>
+						    <p class="card-text">Solo para los masoquistas...</p>
+						    <input class="form-check-input" type="checkbox" name="cursos" id="curso4" value="haskell">
+					  	</div>
+				  	</div>
                 </div>
             </div>
             <div class="row justify-content-center my-4">
