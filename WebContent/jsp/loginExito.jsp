@@ -28,8 +28,8 @@
         <!-- DERECHA -->
     </nav>
     <!-- NAVBAR -->
-    	<h1>Logeado como: ${sessionScope.nick} </h1>
-    	<a href="../LogoutServlet" class="btn btn-info">LOGOUT</a>
+    	<h1>Bienvenido ${sessionScope.nick} </h1>
+    	<a href="../LogoutServlet" class="btn btn-info">Perfil</a>
     
 	
 </body>
