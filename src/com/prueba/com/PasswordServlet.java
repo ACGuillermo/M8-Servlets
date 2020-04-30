@@ -15,7 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
+ * PasswordServlet.java
  * Servlet implementation class ContraseñaServlet
+ * @author Guillermo
+ * @since   2020-04-30
  */
 @WebServlet("/PasswordServlet")
 public class PasswordServlet extends HttpServlet {
