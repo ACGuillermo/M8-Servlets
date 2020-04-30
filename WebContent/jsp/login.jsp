@@ -5,7 +5,7 @@
 <%
 
 if(session.getAttribute("nick") != null){
-	String destination = "loginExito.jsp";
+	String destination = "perfil.jsp";
 	response.sendRedirect(destination);
 }
 
