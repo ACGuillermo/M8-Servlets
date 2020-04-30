@@ -20,7 +20,18 @@
 
         <!-- DERECHA -->
             <div class="navbar-nav">
+                <%
+					if(session.getAttribute("nick") != null){
+				
+				%>
+                <a class="nav-item nav-link text-primary" href="perfil.jsp">Perfil</a>
+                <%
+                	}else{ 
+                %>
                 <a class="nav-item nav-link text-primary" href="login.jsp">Login</a>
+                <%
+                	} 
+                %>
                 <a class="btn btn-outline-info ml-1 mr-1" href="registrar.jsp">REGISTRAR</a>
             </div>
         </div>

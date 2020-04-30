@@ -23,8 +23,6 @@
             	<a class="nav-item nav-link text-primary" href="cursos.jsp">Cursos</a>
             	<%
 					if(session.getAttribute("nick") != null){
-						String destination = "loginExito.jsp";
-						response.sendRedirect(destination);
 				
 				%>
                 <a class="nav-item nav-link text-primary" href="perfil.jsp">Perfil</a>
