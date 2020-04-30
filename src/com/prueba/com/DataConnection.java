@@ -272,8 +272,6 @@ public class DataConnection {
 	* 
 	*/
 	public void changePass(String nick, String pass) throws SQLException {
-		System.out.print(nick);
-		System.out.print(pass);
 		
 		changePass = con.prepareStatement("UPDATE users SET pass = ? WHERE nick = ?");
 		
