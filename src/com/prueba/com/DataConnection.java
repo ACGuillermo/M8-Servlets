@@ -119,7 +119,7 @@ public class DataConnection {
 	* 
 	* closeQuery
 	* Method for closing preparedStatement connection with database.
-	* @param rs preparedStatement to be closed.
+	* @param query preparedStatement to be closed.
 	* @author  Guillermo
 	* @since   2020-04-30
 	*  
@@ -178,7 +178,7 @@ public class DataConnection {
 	* Method for inserting user in database.
 	* @param nombre nick of user to insert.
 	* @param password password of user to insert.
-	* @paran email email of user to insert.
+	* @param email email of user to insert.
 	* @author  Guillermo
 	* @since   2020-04-30
 	*  
