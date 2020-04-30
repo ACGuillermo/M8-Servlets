@@ -1,1 +1,1 @@
-DELETE FROM users WHERE nick = "qwer12"
+SELECT * FROM users

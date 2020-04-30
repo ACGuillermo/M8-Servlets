@@ -12,6 +12,7 @@ public class TestUnit {
    public void testGetConnection() {
 	   DataConnection dataConnection = new DataConnection();
 	   assertNotNull(dataConnection.getConnection());
+	   dataConnection.closeConnection(dataConnection.getConnection());
    }
    
    @Test
@@ -72,14 +73,35 @@ public class TestUnit {
 	   assertTrue(dataConnection.checkUser("Guille"));
 	   assertTrue(dataConnection.checkUser("guille"));
 	   assertTrue(dataConnection.checkUser("hola"));
+	   
+	   dataConnection.closeConnection(dataConnection.getConnection());
    }
    
-   @Test public void insertUser( ) throws SQLException {
+   @Test
+   public void insertUser( ) throws SQLException {
+	   String test = "TestUser";
 	   DataConnection dataConnection = new DataConnection();
-	   assertFalse(dataConnection.checkUser("TestUser"));
-	   dataConnection.insertUser("TestUser", "passTest", "eTest");
-	   assertTrue(dataConnection.checkUser("TestUser"));
-	   dataConnection.dropUser("TestUser");
+	   dataConnection.dropUser(test);
+	   assertFalse(dataConnection.checkUser(test));
+	   dataConnection.insertUser(test, "passTest", "eTest");
+	   assertTrue(dataConnection.checkUser(test));
+	   dataConnection.dropUser(test);
+	   assertFalse(dataConnection.checkUser(test));
+	   
+	   dataConnection.closeConnection(dataConnection.getConnection());
+   }
+   
+   @Test
+   public void dropUser ( ) throws SQLException {
+	   String test = "TestUser";
+	   DataConnection dataConnection = new DataConnection();
+	   dataConnection.insertUser(test, "passTest", "eTest");
+	   assertTrue(dataConnection.checkUser(test));
+	   dataConnection.dropUser(test);
+	   assertFalse(dataConnection.checkUser(test));
+	   
+	   dataConnection.closeConnection(dataConnection.getConnection());
+	   
    }
 }
 

@@ -93,7 +93,6 @@ public class DataConnection {
         insertUser.executeUpdate();
         LOGGER.log(Level.FINE, "User inserted");
         
-        con.close();
 	}
 	
 	public void dropUser (String nombre) throws SQLException {
@@ -102,7 +101,6 @@ public class DataConnection {
 		dropUser.setString(1, nombre);
 		
 		dropUser.executeUpdate();
-		con.close();
 	}
 	
 	public void insertComentario(String nick, String comentario) throws SQLException {
@@ -113,7 +111,6 @@ public class DataConnection {
     	
     	insertCompra.executeUpdate();
         
-        con.close();
 	}
 	
 	public void insertCompra (String nick, String cursosString, String pago, String grado) throws SQLException {
@@ -126,6 +123,5 @@ public class DataConnection {
     	
     	insertCompra.executeUpdate();
         
-        con.close();
 	}
 }
