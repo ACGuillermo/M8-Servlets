@@ -26,7 +26,7 @@ public class DataConnection {
 	private PreparedStatement insertCompra = null;
 	private PreparedStatement insertComentario = null;
 	private PreparedStatement dropUser = null;
-	private PreparedStatement insertUser = null;
+	
 	
 	/**
 	* 
@@ -186,7 +186,7 @@ public class DataConnection {
 	*  
 	*/
 	public void insertUser(String nombre, String password, String email) throws SQLException {
-		insertUser = con.prepareStatement("insert into users (nick, pass, email) values(?, ?, ?)");
+		PreparedStatement insertUser = con.prepareStatement("insert into users (nick, pass, email) values(?, ?, ?)");
         
         
         insertUser.setString(1, nombre);
