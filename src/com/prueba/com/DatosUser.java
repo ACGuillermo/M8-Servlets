@@ -20,14 +20,14 @@ import javax.servlet.http.HttpSession;
  * Servlet implementation class CursosUser
  */
 @WebServlet("/CursosUser")
-public class CursosUser extends HttpServlet {
+public class DatosUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = Logger.getAnonymousLogger();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CursosUser() {
+    public DatosUser() {
         super();
     }
 
@@ -57,7 +57,7 @@ public class CursosUser extends HttpServlet {
 	        	String userEmail = userSet.getString("email");
 	        	
 	            
-	            String destination = "/jsp/cursosUser.jsp";
+	            String destination = "/jsp/datosUser.jsp";
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
 				request.setAttribute("name", userName);
 				request.setAttribute("userPassword", userPassword);
