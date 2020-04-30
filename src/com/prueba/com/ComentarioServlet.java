@@ -45,7 +45,6 @@ public class ComentarioServlet extends HttpServlet {
 		
 		try {
 			
-	        if(sesion.getAttribute("nick") != null) {
 	        	String nick = (String) sesion.getAttribute("nick");
 		        if(dataConnection.checkUser(nick)) {
 		        	dataConnection.insertComentario(nick, comentario);
@@ -61,7 +60,6 @@ public class ComentarioServlet extends HttpServlet {
 	        	String destination = "/jsp/usuarioNoExiste.jsp";
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
 				requestDispatcher.forward(request, response);
-	        }
 	        }
 	        
 		}catch(Exception e){
