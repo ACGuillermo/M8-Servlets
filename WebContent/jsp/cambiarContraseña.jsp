@@ -39,7 +39,7 @@
     <!-- NAVBAR -->
     
    <div class="container">
-   		<h2 class="mt-5">Hola${sessionScope.nick}</h2>
+   		<h2 class="mt-5">Hola ${sessionScope.nick}</h2>
    		<p>Nueva contraseña:</p>
    		<form action="../PasswordServlet" method="post" autocomplete="off">
 			<div class="input-group mb-3 w-50">
@@ -48,7 +48,7 @@
 			  </div>
 			  <input type="password" class="form-control" placeholder="********" aria-label="Username" aria-describedby="basic-addon1" name="password">
 			</div>
-			<a id="inputComprar" type="submit" class="btn btn-warning mb-2">Cambiar</a>
+			<button id="inputComprar" type="submit" class="btn btn-warning mb-2">Cambiar</button>
    		</form>
    </div>
 	
